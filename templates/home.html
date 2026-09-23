@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM Sync - home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/home.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/"><logo><img src="{{url_for('static', filename='imgs/logo.png')}}"> SM Sync</logo></a>
+
+        <p>Loggado como: {{session.get("username")}}</p>
+    </nav>
+    <div id="pag">
+        Qual ação deseja tomar?
+
+        <div id="ActionButtons">
+            <a href="/EntrarLogarContas"><button>Entrar com redes sociais</button></a>
+            <a href="/EntrarFazerPostagem"><button>Fazer postagem</button></a>
+        </div>
+    </div>
+</body>
+</html>

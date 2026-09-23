@@ -1,0 +1,309 @@
+:root {
+    --color-bg: #000000;
+    --color-bg-soft: #0d0d0d;
+    --color-card: #121212;
+    --color-text: #ffffff;
+    --color-text-muted: #b3b3b3;
+    --color-purple: #8b5cf6;
+    --color-purple-hover: #7c3aed;
+    --color-purple-soft: rgba(139, 92, 246, 0.15);
+    --color-border: #2a2a2a;
+    --color-error: #ff6b6b;
+ 
+    --radius: 14px;
+    --shadow: 0 20px 60px rgba(139, 92, 246, 0.12);
+}
+ 
+* {
+    box-sizing: border-box;
+}
+ 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 16px;
+    position: relative;
+    overflow-x: hidden;
+}
+ 
+/* ==========================================================================
+   Fundo animado: "orbs" roxos flutuantes sobre o preto, criando profundidade
+   sem tirar o foco do formulário
+   ========================================================================== */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    opacity: 0.55;
+}
+ 
+body::before {
+    width: 480px;
+    height: 480px;
+    top: -160px;
+    left: -140px;
+    background: radial-gradient(circle at center, var(--color-purple) 0%, transparent 70%);
+    animation: floatOrbOne 16s ease-in-out infinite;
+}
+ 
+body::after {
+    width: 420px;
+    height: 420px;
+    bottom: -160px;
+    right: -120px;
+    background: radial-gradient(circle at center, #c4b5fd 0%, transparent 70%);
+    animation: floatOrbTwo 18s ease-in-out infinite;
+}
+ 
+@keyframes floatOrbOne {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%      { transform: translate(80px, 60px) scale(1.15); }
+    66%      { transform: translate(40px, 120px) scale(0.9); }
+}
+ 
+@keyframes floatOrbTwo {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%      { transform: translate(-70px, -50px) scale(1.1); }
+    66%      { transform: translate(-30px, -100px) scale(0.85); }
+}
+ 
+/* Malha sutil animada, dá textura ao preto sem chamar mais atenção que os orbs */
+body {
+    background-image:
+        linear-gradient(rgba(139, 92, 246, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 92, 246, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: gridDrift 30s linear infinite;
+}
+ 
+@keyframes gridDrift {
+    0%   { background-position: 0 0, 0 0; }
+    100% { background-position: 48px 48px, 48px 48px; }
+}
+ 
+/* Garante que o card e o conteúdo fiquem acima dos elementos animados */
+#page {
+    z-index: 1;
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after,
+    body {
+        animation: none;
+    }
+}
+ 
+/* Container geral da página, funciona como o "card" centralizado
+   parecido com o bloco central da imagem de referência */
+#page {
+    width: 100%;
+    max-width: 460px;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+}
+ 
+/* Barra de destaque roxa no topo do card, como um "acento" de marca */
+#page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-purple), #c4b5fd);
+}
+ 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+ 
+/* Cada etapa do formulário */
+.pag {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+ 
+.pag div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+ 
+/* Campos de texto */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 15px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+ 
+input::placeholder {
+    color: var(--color-text-muted);
+}
+ 
+input:focus {
+    border-color: var(--color-purple);
+    background: #000000;
+    box-shadow: 0 0 0 3px var(--color-purple-soft);
+}
+ 
+/* Botões de "olho" para mostrar/ocultar senha */
+.pag div button[onclick^="toggleSenha"] {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+ 
+.pag div button[onclick^="toggleSenha"]:hover {
+    background: var(--color-purple-soft);
+}
+ 
+.pag div button[onclick^="toggleSenha"] img {
+    width: 18px;
+    height: 18px;
+    filter: invert(1); /* deixa o ícone branco sobre o fundo preto */
+}
+
+#pag1-warning,
+#usernameWarning,
+#passwordWarning {
+    color: var(--color-error);
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+    min-height: 16px;
+}
+
+.btn-Pages,
+#btn-signUp {
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+#btn-nextPage1,
+#btn-nextPage2,
+#btn-signUp {
+    background: var(--color-purple);
+    color: #ffffff;
+}
+ 
+#btn-nextPage1:hover,
+#btn-nextPage2:hover,
+#btn-signUp:hover {
+    background: var(--color-purple-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.35);
+}
+
+#btn-lastPage {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+ 
+#btn-lastPage:hover {
+    border-color: var(--color-purple);
+    color: var(--color-purple);
+}
+
+#pag2,
+#confirmTab {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#emailWarnDisplay {
+    color: var(--color-purple);
+    font-weight: 600;
+    margin: 0;
+    word-break: break-all;
+}
+
+#emailConfirmation {
+    width: 100%;
+    background: #0d0d0d;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 18px;
+    letter-spacing: 6px;
+    text-align: center;
+    padding: 14px 16px;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#emailConfirmation:focus {
+    border-color: var(--color-purple);
+    background: #000000;
+    box-shadow: 0 0 0 3px var(--color-purple-soft);
+}
+
+#pag2 #btn-lastPage,
+#pag2 #btn-nextPage2,
+#confirmTab #btn-lastPage,
+#confirmTab #btn-signUp {
+    flex: 1;
+}
+ 
+#pag1 .btn-Pages {
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
+#pag2, #confirmTab, #btn-signUp{
+    display: none;
+}
+ 
+/* Responsivo */
+@media (max-width: 480px) {
+    #page {
+        padding: 28px 20px;
+    }
+}

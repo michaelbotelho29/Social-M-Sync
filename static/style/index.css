@@ -1,0 +1,204 @@
+:root {
+    --color-bg: #000000;
+    --color-bg-soft: #0d0d0d;
+    --color-text: #ffffff;
+    --color-text-muted: #b3b3b3;
+    --color-purple: #8b5cf6;
+    --color-purple-hover: #7c3aed;
+    --color-purple-soft: rgba(139, 92, 246, 0.15);
+    --color-border: #2a2a2a;
+}
+ 
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", Arial, sans-serif;
+    box-sizing: border-box;
+}
+ 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+ 
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+ 
+a {
+    text-decoration: none;
+}
+ 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: var(--color-bg-soft);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+ 
+logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: 0.5px;
+}
+ 
+logo img {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+}
+ 
+enterButtons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+ 
+nav button {
+    appearance: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+enterButtons a:nth-child(2) button {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+ 
+enterButtons a:nth-child(2) button:hover {
+    border-color: var(--color-purple);
+    color: var(--color-purple);
+}
+
+enterButtons a:nth-child(1) button {
+    background: var(--color-purple);
+    color: #ffffff;
+    border: 1px solid var(--color-purple);
+}
+ 
+enterButtons a:nth-child(1) button:hover {
+    background: var(--color-purple-hover);
+    transform: translateY(-1px);
+}
+ 
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 24px;
+    gap: 20px;
+}
+ 
+biggie {
+    display: block;
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--color-text);
+}
+ 
+biggie p {
+    margin: 6px 0 0;
+    color: var(--color-purple);
+}
+ 
+slim {
+    display: block;
+    max-width: 620px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+}
+ 
+slim p {
+    margin: 4px 0 0;
+    color: var(--color-text-muted);
+}
+ 
+enter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+ 
+enter button {
+    appearance: none;
+    border-radius: 10px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+ 
+enter a:nth-child(1) button {
+    background: var(--color-purple);
+    color: #ffffff;
+    border: 1px solid var(--color-purple);
+}
+ 
+enter a:nth-child(1) button:hover {
+    background: var(--color-purple-hover);
+    transform: translateY(-2px);
+}
+ 
+enter a:nth-child(2) button {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+ 
+enter a:nth-child(2) button:hover {
+    border-color: var(--color-purple);
+    color: var(--color-purple);
+}
+
+@media (max-width: 640px) {
+    nav {
+        padding: 16px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+ 
+    main {
+        padding: 60px 20px;
+    }
+ 
+    enter,
+    enterButtons {
+        width: 100%;
+        justify-content: center;
+    }
+ 
+    enter button,
+    enterButtons button {
+        width: 100%;
+    }
+}

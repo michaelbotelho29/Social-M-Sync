@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/index.css') }}">
+    <title>SM Sync - Um clique, todas as redes</title>
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <logo>
+                <img src="{{url_for('static', filename='imgs/logo.png')}}"> SM Sync
+            </logo>
+        </a>
+
+        <enterButtons>
+            <a href="/entrarCadastro"><button>Criar Conta</button></a>
+            <a href="/entrarLogin"><button>Entrar</button></a>
+        </enterButtons>
+    </nav>
+    <main>
+        <biggie>
+            Um clique
+            <p>Todas as redes</p>
+        </biggie>
+        <slim>
+            Pular de rede em rede para fazer a mesma divulgação não é mais necessário.
+            <p>facilite sua vida com apenas uma ferramenta.</p>
+        </slim>
+        <enter>
+            <a href="/entrarCadastro"><button>Comece agora</button></a>
+            <a href="/entrarLogin"><button>Já sou cadastrado</button></a>
+        </enter>
+    </main>
+</body>
+</html>

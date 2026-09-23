@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/postar.css') }}">
+</head>
+<body>
+    <form action="/FazerPostagem" method="post">
+        <input type="text" name="postLegenda" id="postLegenda" placeholder="Escreva qual legenda você quer para o seu post">
+        <input type="text" name="postInage" id="postImage" placeholder="Cole o URL da sua imagem">
+        <p><input type="checkbox" name="Instagram">Instagram</p>
+        <p><input type="checkbox" name="Facebook">Facebook</p>
+        <p><input type="checkbox" name="LinkedIn">LinkedIn</p>
+        <button onclick="postar()">Postar</button>
+        <button type="button">Postando...</button>
+    </form>
+</body>
+</html>

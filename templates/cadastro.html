@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM Sync - Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/cadastro.css') }}">
+</head>
+<body>
+    <div id="page">
+        <form action="/cadastrar" method="post">
+            <div class="pag" id="pag1">
+                <div class="" id="">
+                    <input type="text" name="userName" class="inputFirstPage" id="" placeholder="Digite seu nome">
+                </div>
+                <div class="" id="">
+                    <input type="number" name="userCPF" class="inputFirstPage" id="userCPF" placeholder="Digite seu CPF/CNPJ">
+                </div>
+                <div class="" id="">
+                    <input type="email" name="userEmail" class="inputFirstPage" id="userEmail" placeholder="Digite seu email">
+                </div>
+                <div class="" id="">
+                    <input type="number" name="userNumber" class="inputFirstPage" id="userNumber" placeholder="Digite seu telefone">
+                </div>
+                <h3 id="pag1-warning"></h3>
+                <button type="button" class="btn-Pages" id="btn-nextPage1" onclick="nextPage1()">Avançar</button>
+            </div>
+            <div class="pag" id="pag2">
+                <div class="" id="">
+                    <input type="text" name="username" id="username" placeholder="Digite seu nome de usuário">
+                    <h3 id="usernameWarning"></h3>
+                </div>
+                <div class="" id="">
+                    <input type="password" name="userPassword1" id="senha1" placeholder="Digite a sua senha">
+                    <button type="button" onclick="toggleSenha1()"><img src="{{ url_for('static', filename='imgs/eye-closed.png') }}" id="btn-toggle-senha-img1"></button>
+                </div>
+                <div class="" id="">
+                    <input type="password" name="userPassword2" id="senha2" placeholder="Confirme a sua senha">
+                    <button type="button" onclick="toggleSenha2()"><img src="{{ url_for('static', filename='imgs/eye-closed.png') }}" id="btn-toggle-senha-img2"></button>
+                </div>
+                <h3 id="passwordWarning"></h3>
+                <button type="button" class="btn-Pages" id="btn-lastPage" onclick="lastPage1()">Voltar</button>
+                <button type="button" class="btn-Pages" id="btn-nextPage2" onclick="nextPage2()">Avançar</button>
+            </div>
+            <div id="confirmTab">
+                <h1 id="emailWarn">Para confirmarmos sua identidade, enviamos um e-mail para</h1>
+                <p id="emailWarnDisplay"></p>
+                <p id="emailWarn2">por favor, insira o código enviado na caixa de texto abaixo</p>
+                <input type="text" name="emailConfirmation" id="emailConfirmation">
+                <button type="button" class="btn-Pages" id="btn-lastPage" onclick="lastPage2()">Voltar</button>
+                <button type="button" class="btn-Pages" id="btn-verify" onclick="verificar()">Verificar</button>
+                <button type="submit" id="btn-signUp">Cadastrar-se</button>
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='script/cadastro.js') }}"></script>
+</body>
+</html>
