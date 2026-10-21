@@ -1,0 +1,6 @@
+{
+  "nome": "Queijinho_Quent",
+  "CPF": "12345678901",
+  "email": "arthurbinho763@gmail.com",
+  "Number": "12345678901"
+}

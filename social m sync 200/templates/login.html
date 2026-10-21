@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/login.css') }}">
+    <title>SM Sync - Login</title>
+</head>
+<body>
+    <div id="pag">
+        <form action="/entrar" method="post">
+            <div id="pag1">
+                <div class="" id="">
+                    <input type="text" name="username" id="username" placeholder="Digite seu usuário">
+                </div>
+                <div class="" id="">
+                    <input type="password" name="password" id="password" placeholder="Digite sua senha">
+                    <button type="button" id="btn-Password" onclick="toggleSenha()"><img src="{{ url_for('static', filename='imgs/eye-closed.png') }}" id="btn-toggle-senha-img"></button>
+                </div>
+                <h3 id="loginWarning"></h3>
+                <button type="button" id="entrar" onclick="EnterAccount()">Entrar</button>
+                <div id="loadingIndicator" style="display:none;">Verificando...</div>
+            </div>
+            <div id="pag2">
+                <h1 id="emailWarn">Para confirmarmos sua identidade, enviamos um e-mail para</h1>
+                <p id="emailWarnDisplay"></p>
+                <p id="emailWarn2">por favor, insira o código enviado na caixa de texto abaixo</p>
+                <input type="text" name="emailConfirmation" id="emailConfirmation">
+                <button type="submit">confirmar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script/login.js') }}"></script>
+</body>
+</html>

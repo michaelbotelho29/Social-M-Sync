@@ -1,0 +1,6 @@
+{
+  "nome": "Arthur Santos Pereira",
+  "CPF": "11111111111",
+  "email": "conta.cachorro3@gmail.com",
+  "Number": "11981454783"
+}

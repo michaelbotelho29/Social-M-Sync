@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM Sync - tudo pronto!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/AllDone.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <logo>
+                <img src="{{url_for('static', filename='imgs/logo.png')}}"> SM Sync
+            </logo>
+        </a>
+
+        <enterButtons>
+            <a href="/entrarCadastro"><button>Criar Conta</button></a>
+            <a href="/entrarLogin"><button>Entrar</button></a>
+        </enterButtons>
+    </nav>
+    <main>
+        <biggie>Tudo pronto!!</biggie>
+        <slim>Agora é só entrar na sua conta e descomplicar a sua vida</slim>
+        <enter>
+            <a href="/entrarLogin"><button>Entrar agora</button></a>
+        </enter>
+    </main>
+</body>
+</html>

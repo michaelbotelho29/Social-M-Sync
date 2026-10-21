@@ -1,0 +1,6 @@
+{
+  "nome": "Enzo Legal",
+  "CPF": "12345678910",
+  "email": "enzoemiliolopes@gmail.com",
+  "Number": "43434251678"
+}

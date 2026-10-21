@@ -1,0 +1,6 @@
+{
+  "nome": "Zion",
+  "CPF": "12345678910",
+  "email": "zionkingjudah@gmail.com",
+  "Number": "12345678910"
+}
